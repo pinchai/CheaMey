@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1a1412">
-  <meta name="description" content="លិខិតអញ្ជើញសិរីមង្គលអាពាហ៍ពិពាហ៍ ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី | Wedding Invitation">
   <title>សិរីមង្គលអាពាហ៍ពិពាហ៍ | ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="សិរីមង្គលអាពាហ៍ពិពាហ៍ | ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី">
+  <meta name="description" content="សូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍ ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី នៅថ្ងៃអាទិត្យ ទី២០ ខែធ្នូ ឆ្នាំ២០២៦ នៅគេហដ្ឋានខាងស្រី ភូមិក្បាលហុងចាស់ ឃុំល្វាលើ ស្រុកចំការលើ ខេត្តកំពង់ចាម">
+  <meta name="author" content="ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី">
+  <meta name="keywords" content="សិរីមង្គលអាពាហ៍ពិពាហ៍, លិខិតអញ្ជើញអាពាហ៍ពិពាហ៍, wedding invitation, ចេក ស៊ាងហៃ, ស៊ឹម ជាមុី, កំពង់ចាម">
+  <meta name="theme-color" content="#120e0d">
+  <meta name="msapplication-navbutton-color" content="#120e0d">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Open Graph / Facebook & Telegram Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="សិរីមង្គលអាពាហ៍ពិពាហ៍ | Wedding Invitation">
+  <meta property="og:title" content="សិរីមង្គលអាពាហ៍ពិពាហ៍ | ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី">
+  <meta property="og:description" content="សូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍ ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី ថ្ងៃអាទិត្យ ទី២០ ខែធ្នូ ឆ្នាំ២០២៦ នៅគេហដ្ឋានខាងស្រី ភូមិក្បាលហុងចាស់ ឃុំល្វាលើ ស្រុកចំការលើ ខេត្តកំពង់ចាម">
+  <meta property="og:image" content="image/og_share.jpg">
+  <meta property="og:image:secure_url" content="image/og_share.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="សិរីមង្គលអាពាហ៍ពិពាហ៍ ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី">
+  <meta property="og:locale" content="km_KH">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="សិរីមង្គលអាពាហ៍ពិពាហ៍ | ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី">
+  <meta name="twitter:description" content="សូមគោរពអញ្ជើញ ឯកឧត្តម លោកជំទាវ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍ ចេក ស៊ាងហៃ & ស៊ឹម ជាមុី ថ្ងៃអាទិត្យ ទី២០ ខែធ្នូ ឆ្នាំ២០២៦">
+  <meta name="twitter:image" content="image/og_share.jpg">
 
   <!-- Google Fonts for Khmer & Luxury Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1310,7 +1337,18 @@
     }
     applyGuestName(guestName);
 
-    // Telegram WebApp Initialization & Auto-Expansion
+    // Ensure absolute canonical & OG URLs when running under HTTP/HTTPS
+    if (window.location.protocol.startsWith('http')) {
+      try {
+        const absImageUrl = new URL('image/og_share.jpg', window.location.href).href;
+        const ogImg = document.querySelector('meta[property="og:image"]');
+        if (ogImg) ogImg.setAttribute('content', absImageUrl);
+        const ogImgSec = document.querySelector('meta[property="og:image:secure_url"]');
+        if (ogImgSec) ogImgSec.setAttribute('content', absImageUrl);
+        const twImg = document.querySelector('meta[name="twitter:image"]');
+        if (twImg) twImg.setAttribute('content', absImageUrl);
+      } catch (e) {}
+    }
     if (window.Telegram && window.Telegram.WebApp) {
       try {
         const tg = window.Telegram.WebApp;
