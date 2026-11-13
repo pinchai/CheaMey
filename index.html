@@ -145,7 +145,7 @@
       aspect-ratio: 576 / 1024;
       max-height: 100vh;
       background-color: #120e0d;
-      background-image: url('image/wedding_cover.webp');
+      background-image: url('image/cover_real_couple.webp');
       background-size: 100% 100%;
       background-position: center top;
       background-repeat: no-repeat;
@@ -168,48 +168,103 @@
       pointer-events: none;
     }
 
-    /* The White Plaque Overlay (Guest Name Box) */
-    /* Coords measured accurately from 576x1024 template: x: 14% to 86%, y: 69.0% to 74.6% */
-    .guest-plaque-overlay {
+    /* Respectfully Inviting Label Above Plaque */
+    .cover-respect-badge {
       position: absolute;
-      left: 13.5%;
-      width: 73%;
-      top: 68.8%;
-      height: 5.8%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 10px;
+      top: 64.0%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-moul);
+      font-size: clamp(0.9rem, 3.2vw, 1.15rem);
+      color: #ffd875;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 14px rgba(229, 184, 59, 0.6);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
       z-index: 10;
       pointer-events: none;
     }
 
+    /* The White & Gold Royal Plaque (Guest Name Box) */
+    .guest-plaque-overlay {
+      position: absolute;
+      left: 9%;
+      width: 82%;
+      top: 68.2%;
+      min-height: 5.6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      z-index: 10;
+      background: linear-gradient(180deg, #ffffff 0%, #faf6ee 100%);
+      border: 2px solid #dfad38;
+      border-radius: 6px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65), 0 0 12px rgba(223, 173, 56, 0.45);
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+    .guest-plaque-overlay::before,
+    .guest-plaque-overlay::after {
+      content: '❖';
+      position: absolute;
+      color: #c99326;
+      font-size: 0.75rem;
+    }
+    .guest-plaque-overlay::before { left: 8px; }
+    .guest-plaque-overlay::after { right: 8px; }
+
     .guest-name-text {
       color: #3b1e10;
       font-family: var(--font-moul);
-      font-size: clamp(0.85rem, 3.2vw, 1.15rem);
+      font-size: clamp(0.85rem, 3vw, 1.15rem);
       text-align: center;
       line-height: 1.35;
       letter-spacing: 0.2px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 1px rgba(90, 40, 10, 0.3);
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    }
+
+    /* Date and location preview teaser below plaque */
+    .cover-event-preview {
+      position: absolute;
+      top: 74.8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-kantumruy);
+      font-size: clamp(0.7rem, 2.4vw, 0.82rem);
+      font-weight: 600;
+      color: #ede2d3;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
+      white-space: nowrap;
+      z-index: 10;
+      pointer-events: none;
+      letter-spacing: 0.2px;
     }
 
     /* Open Button Overlay & Pulsing Ripple */
-    /* Coords measured accurately from template: centered at x: 50%, y: 84.9% */
     .open-btn-container {
       position: absolute;
       left: 50%;
-      top: 84.9%;
+      top: 84.8%;
       transform: translate(-50%, -50%);
-      width: 68px;
-      height: 68px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      z-index: 15;
+      cursor: pointer;
+    }
+
+    .open-btn-wrap-inner {
+      position: relative;
+      width: 58px;
+      height: 58px;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 15;
     }
 
     .open-btn-pulse {
@@ -250,11 +305,12 @@
     }
 
     .open-btn-trigger {
-      width: 58px;
-      height: 58px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      background: transparent;
-      border: none;
+      background: linear-gradient(135deg, #ffffff 0%, #faecc3 100%);
+      border: 2.5px solid #dfad38;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 12px rgba(229, 184, 59, 0.5);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -262,18 +318,34 @@
       transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .open-btn-trigger:hover {
-      transform: scale(1.12);
+      transform: scale(1.1);
     }
     .open-btn-trigger:active {
       transform: scale(0.95);
+    }
+    .open-play-icon {
+      width: 22px;
+      height: 22px;
+      fill: #8f6010;
+      margin-left: 3px;
+    }
+
+    .open-btn-label {
+      font-family: var(--font-moul);
+      font-size: clamp(0.72rem, 2.5vw, 0.85rem);
+      color: #ffd875;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.95);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      pointer-events: none;
     }
 
     /* Tap hint text at bottom of cover */
     .tap-hint {
       position: absolute;
-      bottom: 2.5%;
+      bottom: 2%;
       color: rgba(245, 209, 102, 0.85);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.5px;
       display: flex;
       align-items: center;
@@ -940,18 +1012,31 @@
     <header class="hero-cover" id="hero-cover" role="banner">
       <div class="cover-shimmer"></div>
 
-      <!-- Guest Name Plaque Overlay (Centered in White Area of Template) -->
+      <!-- Respectfully Inviting Title (Matching Card Envelope Calligraphy) -->
+      <div class="cover-respect-badge">សូមគោរពអញ្ជើញ</div>
+
+      <!-- Royal White & Gold Plaque (Dynamic Guest Name) -->
       <div class="guest-plaque-overlay" id="plaque-box">
         <span class="guest-name-text" id="display-guest-name">ភ្ញៀវកិត្តិយស</span>
       </div>
 
-      <!-- Pulsing Open Invitation Button Overlay (Positioned over Play Circle) -->
+      <!-- Date & Venue Preview -->
+      <div class="cover-event-preview">
+        <span>ថ្ងៃអាទិត្យ ទី២០ ខែធ្នូ ឆ្នាំ២០២៦ • វេលាម៉ោង ៥:០០ ល្ងាច</span>
+      </div>
+
+      <!-- Pulsing Royal Open Invitation Button -->
       <div class="open-btn-container" id="open-btn-wrap">
-        <div class="open-btn-pulse"></div>
-        <div class="open-btn-pulse-2"></div>
-        <button class="open-btn-trigger" id="open-invitation-btn" aria-label="បើកសំបុត្រ (Open Wedding Invitation)">
-          <!-- Transparent trigger sitting perfectly over template play circle -->
-        </button>
+        <div class="open-btn-wrap-inner">
+          <div class="open-btn-pulse"></div>
+          <div class="open-btn-pulse-2"></div>
+          <button class="open-btn-trigger" id="open-invitation-btn" aria-label="បើកសំបុត្រ (Open Wedding Invitation)">
+            <svg viewBox="0 0 24 24" class="open-play-icon">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+        <span class="open-btn-label">បើកសំបុត្រ</span>
       </div>
 
       <!-- Tap Hint Text at Bottom -->
