@@ -1013,38 +1013,14 @@
     }
 
     .modal-content {
-      max-width: 88vw;
-      max-height: 70vh;
+      max-width: 90vw;
+      max-height: 78vh;
       border-radius: 8px;
       border: 2px solid var(--gold-400);
       box-shadow: 0 0 35px rgba(229, 184, 59, 0.35), 0 12px 40px rgba(0, 0, 0, 0.8);
       object-fit: contain;
       transition: opacity 0.22s ease, transform 0.22s ease;
       display: block;
-    }
-
-    .lightbox-caption {
-      margin-top: 12px;
-      text-align: center;
-      max-width: 86vw;
-    }
-
-    .lightbox-caption-kh {
-      font-family: var(--font-moul);
-      font-size: 0.82rem;
-      color: #ffd875;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
-      letter-spacing: 0.3px;
-      line-height: 1.4;
-    }
-
-    .lightbox-caption-en {
-      font-family: var(--font-cinzel);
-      font-size: 0.68rem;
-      color: rgba(255, 235, 195, 0.85);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      margin-top: 2px;
     }
 
     .lightbox-nav-btn {
@@ -1683,10 +1659,6 @@
 
     <div class="lightbox-image-wrap" onclick="event.stopPropagation()">
       <img src="" alt="Full view" class="modal-content" id="lightbox-img">
-      <div class="lightbox-caption">
-        <div class="lightbox-caption-kh" id="lightbox-caption-kh"></div>
-        <div class="lightbox-caption-en" id="lightbox-caption-en"></div>
-      </div>
     </div>
 
     <button class="lightbox-nav-btn next-btn" id="lightbox-next" onclick="nextPhoto(event)" aria-label="Next photo">
@@ -2100,8 +2072,6 @@
     const modal = document.getElementById('lightbox-modal');
     const modalImg = document.getElementById('lightbox-img');
     const modalCounter = document.getElementById('lightbox-counter');
-    const captionKh = document.getElementById('lightbox-caption-kh');
-    const captionEn = document.getElementById('lightbox-caption-en');
 
     function updateLightboxContent(idx) {
       if (idx < 0) idx = galleryItems.length - 1;
@@ -2116,7 +2086,7 @@
       preload.src = item.src;
       preload.onload = () => {
         modalImg.src = item.src;
-        modalImg.alt = item.kh;
+        modalImg.alt = item.kh || 'Full view';
         modalImg.style.opacity = '1';
         modalImg.style.transform = 'scale(1)';
       };
@@ -2124,8 +2094,6 @@
       if (modalCounter) {
         modalCounter.textContent = `${currentPhotoIdx + 1} / ${galleryItems.length}`;
       }
-      if (captionKh) captionKh.textContent = item.kh;
-      if (captionEn) captionEn.textContent = item.en;
     }
 
     function openLightboxIndex(idx) {
