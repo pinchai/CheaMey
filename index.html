@@ -932,103 +932,6 @@
       transform: scale(1.05);
     }
 
-    /* Vignette & text overlay */
-    .gallery-thumb-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(10, 7, 5, 0.85) 0%, rgba(10, 7, 5, 0.2) 45%, transparent 75%);
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 8px 10px;
-      opacity: 0.95;
-      transition: opacity 0.25s ease;
-    }
-
-    .gallery-thumb:hover .gallery-thumb-overlay {
-      opacity: 1;
-      background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.3) 50%, transparent 80%);
-    }
-
-    .gallery-thumb-tag {
-      font-size: 0.72rem;
-      color: #ffd875;
-      font-family: var(--font-moul);
-      letter-spacing: 0.2px;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
-      line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .gallery-thumb-en {
-      font-size: 0.6rem;
-      color: rgba(255, 235, 195, 0.85);
-      font-family: var(--font-cinzel);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Corner zoom icon */
-    .gallery-thumb-zoom {
-      position: absolute;
-      top: 7px;
-      right: 7px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(18, 14, 11, 0.75);
-      border: 1px solid rgba(229, 184, 59, 0.45);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-300);
-      opacity: 0.85;
-      transition: transform 0.2s, opacity 0.2s, border-color 0.2s, color 0.2s;
-      pointer-events: none;
-    }
-
-    .gallery-thumb:hover .gallery-thumb-zoom {
-      opacity: 1;
-      transform: scale(1.1);
-      border-color: var(--gold-200);
-      color: #fff;
-    }
-
-    /* Golden Photo Badge on Hero */
-    .gallery-hero-badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background: rgba(18, 14, 11, 0.85);
-      border: 1px solid rgba(229, 184, 59, 0.5);
-      border-radius: 16px;
-      padding: 3px 8px;
-      font-family: var(--font-cinzel);
-      font-size: 0.62rem;
-      letter-spacing: 0.8px;
-      color: var(--gold-300);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      z-index: 2;
-    }
-
-    .gallery-hero-badge::before {
-      content: "";
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold-300);
-      box-shadow: 0 0 5px var(--gold-300);
-    }
 
     /* Fullscreen Photo Lightbox Modal */
     .modal-overlay {
@@ -1667,143 +1570,51 @@
           <!-- 1. Hero: Angkor Wat Reflection -->
           <div class="gallery-thumb hero-item" onclick="openLightboxIndex(0)">
             <img src="image/gallery_1.webp" alt="រូបថតគូស្នេហ៍ប្រពៃណីខ្មែរនៅប្រាសាទអង្គរវត្ត" loading="lazy">
-            <div class="gallery-hero-badge">10 PHOTOS &bull; កម្រងរូបភាព</div>
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ប្រាសាទអង្គរវត្ត • Angkor Wat</div>
-              <div class="gallery-thumb-en">Grand Pre-wedding Portrait</div>
-            </div>
           </div>
 
           <!-- 2. Angkor Wat Sweet Smile -->
           <div class="gallery-thumb" onclick="openLightboxIndex(1)">
             <img src="image/gallery_2.webp" alt="រូបថតគូស្នេហ៍ផ្អែមល្ហែមនៅអង្គរវត្ត" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ស្នាមញញឹមផ្អែមល្ហែម</div>
-              <div class="gallery-thumb-en">Angkor Sweet Smile</div>
-            </div>
           </div>
 
           <!-- 3. Hand in Hand -->
           <div class="gallery-thumb" onclick="openLightboxIndex(2)">
             <img src="image/gallery_3.webp" alt="រូបថតគូស្នេហ៍ដើរកាន់ដៃគ្នានៅប្រាសាទបុរាណ" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">កាន់ដៃគ្នានៅប្រាសាទ</div>
-              <div class="gallery-thumb-en">Hand In Hand</div>
-            </div>
           </div>
 
           <!-- 4. Groom Solo -->
           <div class="gallery-thumb" onclick="openLightboxIndex(3)">
             <img src="image/gallery_4.webp" alt="រូបថតកូនកំលោះ ចេក ស៊ាងហៃ នៅប្រាសាទព្រៃ" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">កូនកំលោះ ចេក ស៊ាងហៃ</div>
-              <div class="gallery-thumb-en">Groom Seanghai</div>
-            </div>
           </div>
 
           <!-- 5. Temple Romance -->
           <div class="gallery-thumb" onclick="openLightboxIndex(4)">
             <img src="image/gallery_5.webp" alt="រូបថតគូស្នេហ៍នៅក្នុងបរិវេណប្រាសាទបុរាណ" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ស្នេហានៅប្រាសាទព្រៃ</div>
-              <div class="gallery-thumb-en">Temple Romance</div>
-            </div>
           </div>
 
           <!-- 6. Bride Solo Moss Stone -->
           <div class="gallery-thumb" onclick="openLightboxIndex(5)">
             <img src="image/gallery_6.webp" alt="រូបថតកូនក្រមុំ ស៊ឹម ជាមុី នៅប្រាសាទបុរាណ" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">កូនក្រមុំ ស៊ឹម ជាមុី</div>
-              <div class="gallery-thumb-en">Bride Cheamey</div>
-            </div>
           </div>
 
           <!-- 7. Modern Wedding Portrait -->
           <div class="gallery-thumb" onclick="openLightboxIndex(6)">
             <img src="image/gallery_7.webp" alt="រូបថតស្ទូឌីយោគូស្វាមីភរិយា សម្លៀកបំពាក់សម័យទំនើប" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ឈុតសម័យទំនើប</div>
-              <div class="gallery-thumb-en">Modern Elegance</div>
-            </div>
           </div>
 
           <!-- 8. Sweet Studio Romance -->
           <div class="gallery-thumb" onclick="openLightboxIndex(7)">
             <img src="image/gallery_8.webp" alt="រូបថតស្ទូឌីយោផ្អែមល្ហែម កូនកំលោះសម្លឹងមើលកូនក្រមុំ" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ក្រសែភ្នែកកក់ក្តៅ</div>
-              <div class="gallery-thumb-en">Warm Romance</div>
-            </div>
           </div>
 
           <!-- 9. Bride Royal Khmer Heritage -->
           <div class="gallery-thumb" onclick="openLightboxIndex(8)">
             <img src="image/gallery_9.webp" alt="រូបថតស្ទូឌីយោកូនក្រមុំ ស៊ឹម ជាមុី ក្នុងឈុតប្រពៃណីខ្មែរ" loading="lazy">
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ឈុតប្រពៃណីខ្មែរ</div>
-              <div class="gallery-thumb-en">Khmer Royal Attire</div>
-            </div>
           </div>
 
           <!-- 10. Hero Finale: Traditional Forehead Touch -->
           <div class="gallery-thumb hero-item" onclick="openLightboxIndex(9)">
             <img src="image/gallery_10.webp" alt="រូបថតស្ទូឌីយោគូស្នេហ៍ប្រពៃណីខ្មែរផ្អែកថ្ងាសរកគ្នា" loading="lazy">
-            <div class="gallery-hero-badge">ROYAL UNION &bull; ស្នេហ៍និរន្តរ៍</div>
-            <div class="gallery-thumb-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-              </svg>
-            </div>
-            <div class="gallery-thumb-overlay">
-              <div class="gallery-thumb-tag">ផ្អែកថ្ងាសរកគ្នា • ស្នេហ៍និរន្តរ៍</div>
-              <div class="gallery-thumb-en">Traditional Forehead Touch</div>
-            </div>
           </div>
         </div>
       </section>
